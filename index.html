@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png" />
+
+    <title>Frontend Mentor | Multi-step form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="sidebar">
+        <img src="./assets/images/bg-sidebar-mobile.svg" alt="" />
+        <img src="./assets/images/bg-sidebar-desktop.svg" alt="" />
+        <div class="buttons">
+          <section>
+            <a href="#step1" class="one currentPageNumber" onclick="setPage(1)"
+              >1</a
+            >
+            <span>
+              <p>Step 1</p>
+              <small>Your info</small>
+            </span>
+          </section>
+          <section>
+            <a href="#step2" class="two currentPageNumber" onclick="setPage(2)"
+              >2</a
+            >
+            <span
+              ><p>Step 2</p>
+              <small>Select plan</small></span
+            >
+          </section>
+          <section>
+            <a
+              href="#step3"
+              class="three currentPageNumber"
+              onclick="setPage(3)"
+              >3</a
+            >
+            <span>
+              <p>Step 3</p>
+              <small>Add-ons</small></span
+            >
+          </section>
+          <section>
+            <a href="#step4" class="four currentPageNumber" onclick="setPage(4)"
+              >4</a
+            >
+            <span>
+              <p>Step 4</p>
+              <small>summary</small></span
+            >
+          </section>
+        </div>
+      </div>
+      <div class="main-form-content">
+        <!-- step one -->
+        <div id="step1">
+          <form>
+            <h3>Personal info</h3>
+            <p>Please provide your name, email address and phone number</p>
+            <br />
+            <br />
+            <section>
+              <div class="name val">
+                <p>Name</p>
+                <small>This field is required</small>
+              </div>
+
+              <input
+                type="text"
+                name="name"
+                id="name"
+                placeholder="eg: John Doe"
+                required />
+            </section>
+            <br />
+            <section>
+              <div class="email val">
+                <p>Email</p>
+                <small>This field is required</small>
+              </div>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="eg: johndoe@example.com"
+                required />
+            </section>
+            <br />
+            <section>
+              <div class="number val">
+                <p>Phone number</p>
+                <small>This field is required</small>
+              </div>
+              <input
+                type="number"
+                name="number"
+                id="number"
+                placeholder="eg: +233 235 684 2302"
+                required />
+            </section>
+          </form>
+        </div>
+        <!-- step two -->
+        <div id="step2">
+          <form>
+            <h3>Select your plan</h3>
+            <p>Your have the option of monthly or yearly billing</p>
+            <br />
+            <br />
+            <div>
+              <section class="selected plan plan-arcade" data-plan="90">
+                <img src="./assets/images/icon-arcade.svg" alt="" />
+                <span>
+                  <p>Arcade</p>
+                  <small>$90/yr</small>
+                  <p>2 months free</p>
+                </span>
+              </section>
+              <section data-plan="120" class="plan plan-advance">
+                <img src="./assets/images/icon-advanced.svg" alt="" />
+                <span>
+                  <p>Advanced</p>
+                  <small>$120/yr</small>
+                  <p>2 months free</p>
+                </span>
+              </section>
+              <section data-plan="150" class="plan plan-pro">
+                <img src="./assets/images/icon-pro.svg" alt="" />
+                <span>
+                  <p>Pro</p>
+                  <small>$150/yr</small>
+                  <p>2 months free</p>
+                </span>
+              </section>
+            </div>
+            <section class="last">
+              <p class="monthly">Monthly</p>
+              <input type="checkbox" name="checkbox" id="checkbox" />
+              <label for="checkbox" class="active"></label>
+              <p class="yearly">Yearly</p>
+            </section>
+          </form>
+        </div>
+        <!-- step three -->
+        <div id="step3">
+          <form>
+            <h3>Pick add-ons</h3>
+            <p>Please provide your name, email address and phone number</p>
+            <br />
+            <br />
+            <section class="add_on_one add_on selected">
+              <aside>
+                <div class="checkbox"></div>
+                <span>
+                  <p>Online service</p>
+                  <small>Access to multiplayer games</small>
+                </span>
+              </aside>
+              <p>+$10/yr</p>
+            </section>
+            <section class="add_on_two add_on selected">
+              <aside>
+                <div class="checkbox"></div>
+
+                <span>
+                  <p>Large storage</p>
+                  <small>Extra 1TB of cloud save</small>
+                </span>
+              </aside>
+              <p>+$20/yr</p>
+            </section>
+            <section class="add_on_three add_on">
+              <aside>
+                <div class="checkbox"></div>
+                <span>
+                  <p>Customizable profile</p>
+                  <small>Custom theme on you profile</small>
+                </span>
+              </aside>
+              <p>+$20/yr</p>
+            </section>
+          </form>
+        </div>
+        <!-- step four -->
+        <div id="step4">
+          <form>
+            <div class="final">
+              <img src="./assets/images/icon-thank-you.svg" alt="" />
+              <h3>Thank you!</h3>
+              <p
+                class="muted"
+                style="font-family: ubuntu-regular, serif; line-height: 25px">
+                Thanks for confirming your subscription! We hope you have fun
+                using our platform. If you ever need support, pleas feel free to
+                email us at support@johndoe.xom
+              </p>
+            </div>
+            <h3>Finishing up</h3>
+            <p>
+              Double-check everything if everything looks OK before confirming
+            </p>
+
+            <span>
+              <section class="plan_final">
+                <aside>
+                  <p class="plan_text">Arcade (Monthly)</p>
+                  <a
+                    class="muted change"
+                    href="#step2"
+                    style="font-family: ubuntu-regular; font-size: 0.8rem">
+                    Change
+                  </a>
+                </aside>
+                <p>+$90/yr</p>
+              </section>
+
+              <hr />
+              <section class="online_service_final">
+                <p class="muted">Online service</p>
+
+                <p>+$10/yr</p>
+              </section>
+              <section class="larger_storage_final">
+                <p class="muted">Larger storage</p>
+
+                <p>+$20/yr</p>
+              </section>
+              <section class="customizable_profile_final">
+                <p class="muted">Customizable profile</p>
+
+                <p>+$20/yr</p>
+              </section>
+            </span>
+            <section>
+              <p class="muted">Total (per month)</p>
+              <p class="total">$140/yr</p>
+            </section>
+          </form>
+        </div>
+      </div>
+      <div class="next-button">
+        <button class="go-back canHide">Go back</button>
+        <button class="next">Next Step</button>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>

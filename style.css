@@ -1,0 +1,511 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+@font-face {
+  font-family: "Ubuntu-Regular";
+  src: url(./assets/fonts/Ubuntu-Regular.ttf);
+}
+@font-face {
+  font-family: "Ubuntu-Medium";
+  src: url(./assets/fonts/Ubuntu-Medium.ttf);
+}
+@font-face {
+  font-family: "Ubuntu-Bold";
+  src: url(./assets/fonts/Ubuntu-Bold.ttf);
+}
+:root {
+  --Marine-blue: hsl(213, 96%, 18%);
+  --Purplish-blue: hsl(243, 100%, 62%);
+  --Pastel-blue: hsl(228, 100%, 84%);
+  --Light-blue: hsl(206, 94%, 87%);
+  --Strawberry-red: hsl(354, 84%, 57%);
+  --Cool-gray: hsl(231, 11%, 63%);
+  --Magnolia: hsl(217, 100%, 97%);
+  --Alabaster: hsl(231, 100%, 99%);
+  --White: hsl(0, 0%, 100%);
+  --Light-gray: hsl(229, 24%, 87%);
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--Magnolia);
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container .sidebar {
+  position: relative;
+  width: 100%;
+}
+.container .sidebar img {
+  width: 100%;
+}
+
+.container .sidebar .buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  gap: 10px;
+  position: absolute;
+  top: 20px;
+  left: calc((100% - 300px) / 2);
+}
+.container .sidebar .buttons > section p,
+.container .sidebar .buttons > section small {
+  display: none;
+}
+.buttons section a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--White);
+  border-radius: 50%;
+  font-family: "Ubuntu-Bold";
+  background-color: transparent;
+  color: var(--White);
+  font-size: 16px;
+  transition: 0.3s ease-in-out;
+  text-decoration: none;
+}
+
+.buttons section a:hover,
+.buttons section a.clicked {
+  cursor: pointer;
+  background: var(--Light-blue);
+  color: var(--Marine-blue);
+  border: 0;
+}
+.main-form-content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  overflow-x: hidden;
+  transform: translateY(-80px);
+}
+.main-form-content > div {
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-form-content::-webkit-scrollbar {
+  display: none;
+}
+form {
+  width: 90vw;
+  background: var(--White);
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+}
+form h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: "Ubuntu-bold";
+  margin-bottom: 10px;
+  color: var(--Marine-blue);
+}
+form > p {
+  font-family: "ubuntu-medium";
+  font-size: 1rem;
+  color: var(--Cool-gray);
+  line-height: 25px;
+  margin-bottom: 0px;
+}
+
+form section p {
+  font-family: "ubuntu-medium";
+  color: var(--Marine-blue);
+  font-weight: 500;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+form section {
+  margin-bottom: 20px;
+}
+
+#step1 .val.error-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "ubuntu-bold";
+  color: var(--Strawberry-red);
+}
+#step1 .val:not(.error-container) small {
+  display: none;
+}
+
+form input {
+  width: 100%;
+  height: 45px;
+  padding: 5px;
+  border: 1.5px solid var(--Light-gray);
+  border-radius: 5px;
+  color: var(--Marine-blue);
+  font-family: "ubuntu-bold";
+}
+form input:focus {
+  outline: 1.5px solid var(--Marine-blue);
+}
+form input.error {
+  border: 1.5px solid var(--Strawberry-red);
+}
+#step2 form > div section,
+#step2 form > section,
+#step3 form > section {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  gap: 15px;
+  border: 1px solid var(--Light-gray);
+  padding: 12px;
+  box-shadow: 0px 0px 1px var(--Light-gray);
+  border-radius: 12px;
+  transition: all 300ms ease;
+  cursor: pointer;
+}
+#step2 form > div {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-top: 15px;
+  transition: all 300ms ease;
+}
+#step2 form > div section.selected,
+#step3 form > section.selected {
+  background: var(--Magnolia);
+  border-color: var(--Purplish-blue);
+}
+#step2 form > div section:hover,
+#step3 form > section:hover {
+  border-color: var(--Purplish-blue);
+}
+#step2 form > section img {
+  width: 40px;
+}
+#step2 section span p {
+  color: var(--Marine-blue);
+}
+#step2 section span small,
+#step3 section span small {
+  font-family: "ubuntu-medium";
+  color: var(--Cool-gray);
+}
+#step3 section span small {
+  font-size: 0.675rem;
+}
+#step2 section span p:nth-child(1),
+#step3 section span p {
+  font-family: "ubuntu-bold";
+  font-size: 0.8rem;
+  margin-top: 15px;
+}
+#step2 section span p:nth-child(3) {
+  font-family: "ubuntu-bold";
+  font-size: 0.6rem;
+  transition: all 300ms ease;
+}
+
+#step3 form section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+#step3 form section aside {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#step3 form section aside p {
+  margin-top: 0px;
+}
+#step3 form section > p {
+  color: var(--Purplish-blue);
+}
+#step2 form .last {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 45px;
+  background-color: var(--Magnolia);
+  border: 0;
+}
+
+#step3 form > section aside .checkbox {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--Purplish-blue);
+  border: 1px solid var(--Cool-gray);
+  border-radius: 15px;
+  outline: none;
+  padding: 2px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#step3 form > section aside .checkbox::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: transparent;
+  border-radius: 50%;
+  transition: all 300ms ease;
+}
+#step3 form > section.selected .checkbox::before {
+  background-color: var(--Cool-gray);
+}
+.last #checkbox {
+  width: 20px;
+  position: absolute;
+  z-index: -200;
+}
+.last label {
+  width: 40px;
+  height: 23px;
+  background: var(--Marine-blue);
+  border-radius: 12px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+label::before {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: var(--White);
+  position: absolute;
+  border-radius: 50%;
+  left: 4px;
+  transition: left 300ms ease;
+}
+label.active::before {
+  left: 21px;
+}
+
+.next-button {
+  width: 100%;
+  background: var(--White);
+  height: 55px;
+  position: absolute;
+  bottom: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 10px;
+}
+.next-button2 {
+  display: none;
+}
+.next-button button {
+  width: 100px;
+  height: 40px;
+  border: 0;
+  background-color: var(--Marine-blue);
+  color: var(--White);
+  border-radius: 5px;
+  font-family: "ubuntu-medium";
+  font-size: 16px;
+  cursor: pointer;
+}
+.next-button .go-back,
+.next-button2 .go-back {
+  background-color: transparent;
+  color: var(--Cool-gray);
+  transition: all 300ms ease;
+  transform-origin: left;
+}
+.next-button .go-back:hover {
+  color: var(--Marine-blue);
+}
+.next-button .go-back.canHide {
+  transform: scale(0);
+}
+
+.next-button .next:hover {
+  opacity: 0.8;
+}
+::placeholder {
+  color: var(--Cool-gray);
+  font-family: "ubuntu-regular";
+  font-size: 12px;
+}
+.container .sidebar img:nth-child(2) {
+  display: none;
+}
+.muted {
+  color: var(--Cool-gray);
+}
+#step4 form span {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--Alabaster);
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+#step4 span section,
+#step4 form > section {
+  display: flex;
+  justify-content: space-between;
+}
+#step4 form > section {
+  padding: 20px;
+}
+#step4 form > section p:not(.muted) {
+  color: var(--Purplish-blue);
+}
+.change {
+  cursor: pointer;
+}
+#step4 .change:hover {
+  color: var(--Purplish-blue);
+  user-select: none;
+}
+hr {
+  margin-top: -10px;
+  opacity: 0.2;
+  margin-bottom: 15px;
+}
+#step4 .final {
+  width: 100%;
+  height: 100%;
+  background-color: var(--White);
+  position: absolute;
+  padding: 50px;
+  padding-inline: 20px;
+  z-index: 50000;
+  left: 0;
+  display: none;
+  justify-content: space-evenly;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+  flex-direction: column;
+  border-radius: 12px;
+}
+@media only screen and (min-width: 768px) {
+  body {
+    min-height: 100vh;
+  }
+  .container {
+    flex-direction: row;
+    width: 750px;
+    height: 500px;
+    background: var(--White);
+    padding: 15px;
+    border-radius: 15px;
+    position: relative;
+  }
+  .main-form-content {
+    width: 450px;
+    transform: translateY(0px);
+  }
+  .container .sidebar {
+    width: 250px;
+  }
+  .container .sidebar img:nth-child(2) {
+    display: block;
+    height: 470px;
+    width: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  .container .sidebar img:nth-child(1) {
+    display: none;
+  }
+
+  .main-form-content > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 450px;
+    max-width: 450px;
+    padding: 30px;
+  }
+  form {
+    width: 450px;
+    padding-right: 0;
+  }
+
+  .container .sidebar {
+    position: relative;
+    width: auto;
+  }
+  .container .sidebar .buttons {
+    width: 100%;
+    flex-direction: column;
+    top: 0px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    left: 0;
+    height: 100%;
+    padding: 20px;
+    gap: 40px;
+  }
+  .container .sidebar .buttons section {
+    display: flex;
+    gap: 15px;
+  }
+
+  .container .sidebar .buttons > section span p,
+  .container .sidebar .buttons > section span small {
+    display: block;
+    font-family: "ubuntu-Medium";
+    text-transform: uppercase;
+    font-size: 0.8rem;
+  }
+  .container .sidebar .buttons > section span p {
+    color: var(--Cool-gray);
+  }
+  .container .sidebar .buttons > section span small {
+    color: var(--Magnolia);
+    margin-top: 3px;
+    letter-spacing: 2px;
+  }
+  #step2 form > div {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding-left: 0;
+    gap: 10px;
+    margin-top: 0;
+  }
+
+  #step2 form > div section {
+    width: calc(100% / 3.58);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  #step3 form section {
+    width: 100%;
+  }
+  #step2 form .last {
+    width: 380px;
+  }
+
+  .next-button {
+    width: 430px;
+    right: 30px;
+    padding: 30px;
+  }
+}
